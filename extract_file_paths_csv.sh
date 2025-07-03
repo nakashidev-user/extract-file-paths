@@ -5,7 +5,7 @@
 
 if [ $# -lt 3 ]; then
     echo "使用方法: $0 \"検索したいファイルパス\" \"出力ファイル名\" \"検索ディレクトリ\""
-    echo "例: $0 \"notice.html\" \"output_01.csv\" \"/Users/nakashimadays365/Downloads/zipdir/06/01\""
+    echo "例: $0 \"search.html\" \"output.csv\" \"/Users/nakashidev-user/workspace/sample-dir\""
     exit 1
 fi
 
@@ -211,12 +211,7 @@ else
     echo "✗ '$SEARCH_PATH' を含む行が見つかりませんでした"
 
     echo ""
-    echo "参考: 最初の.gzファイルの内容サンプル（最初の5行）:"
-    FIRST_GZ=$(find "$SEARCH_DIR" -name "*.gz" | head -1)
-    if [ -f "$FIRST_GZ" ]; then
-        echo "ファイル: $(basename "$FIRST_GZ")"
-        zcat "$FIRST_GZ" | head -5
-    fi
+    echo "◯ '$SEARCH_PATH' を含む行が見つかりました！"
 fi
 
 # 一時ファイルのクリーンアップ
